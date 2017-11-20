@@ -23,6 +23,7 @@ const defaultState = {
     },
 };
 
+// ----- Action Creators
 export const motivePowerActions = {
 
     noop: (id) =>  ({
@@ -38,7 +39,7 @@ export const motivePowerActions = {
         type: 'CHANGE_ROAD_NAME',
         payload: {
             roadName: roadName,
-            id: `${roadName} ${state.number}`
+            id: `${roadName} ${state.number}`,
         }
     }),
 
@@ -65,21 +66,10 @@ export const motivePowerActions = {
 }
 
 // export default taskActions
-
-const motivePower = (state = defaultState, action) => {
-
-  if ( action === undefined )
-    return state;
+// ----- Reducer
+const motivePower = (state = defaultState, action = {type: 'NOOP'}) => {
 
   switch (action.type) {
-
-//     case 'ADD_POWER':
-//       // console.log( 'ADD_POWER' )
-//       return [{
-//           text: action.text,
-//           completed: false,
-//           id: getId(state)
-//         }, ...state]
 
     case 'CHANGE_ROAD_NAME':
         return Object.assign({}, state, {scac: action.payload.roadName, id:  action.payload.id});
@@ -90,6 +80,13 @@ const motivePower = (state = defaultState, action) => {
     case 'RESET_TO_DEFAULTS':
       return Object.assign( {}, defaultState );
 
+//     case 'ADD_POWER':
+//       // console.log( 'ADD_POWER' )
+//       return [{
+//           text: action.text,
+//           completed: false,
+//           id: getId(state)
+//         }, ...state]
 
 //       // return state.map((todo) => {
 //       //     return todo.id === action.id ? 

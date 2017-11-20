@@ -2,17 +2,17 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { motivePowerActions } from '../reducers/motivePower'
-import { Form, Control } from 'react-redux-form'
+import { Form, Control, Errors } from 'react-redux-form'
 // import { Form, Control, Errors, actions } from 'react-redux-form'
 
 class MotivePower extends Component {
 
-  constructor(props) {
-    super(props)
-    // this.props = props;
-    // console.log( 'props in ctor')
-    // console.log( props );
-  }
+  // constructor(props) {
+  //   super(props)
+  //   // this.props = props;
+  //   // console.log( 'props in ctor')
+  //   // console.log( props );
+  // }
 
   savePower() {
     console.log( 'save Power')
@@ -59,6 +59,39 @@ class MotivePower extends Component {
   }
 
 
+            // validLdap: 'Owner LDAP must be a valid ID',
+            // required: 'Owner LDAP is required'
+
+          // <Control.text
+          //          model=".scac"
+          //          id='roadName_id'       
+          //          type='text'
+          //          placeholder="Road name"
+          //          value={this.props.motivePower.scac}
+          //          onChange={this.handleRoadNameChange.bind(this)}
+          //          debounce={600}
+          //          validateOn="change"
+          //          validators={{
+          //            minLength: (val) => (val.length > 1 ),
+          //            maxLength: (val) => (val.length <= 5),
+          //            validChars: (val) => /^[a-zA-Z]+$/i.test(val) || val === "",
+          //          }}
+          // />
+
+          // <Errors
+          //   model="motivePower.scac"
+          //   show={{pristine: false}}
+          //   wrapper={(props) => <div className="text-input-container error">{props.children}</div>}
+          //   component={(props) => <p className="error-msg">{props.children}</p>}
+          //   messages={{
+          //     minLength: 'Road name must be at least 1 character',
+          //     maxLength: 'Road name must not be more than 6 characters',
+          //     validChars: (val) => `The given road name of "${val}" has non-alpha characters`,
+          //   }}
+          // />
+
+
+
   render() {
     // const { loco } = this.props;
     // console.log( this.props.motivePower );
@@ -74,13 +107,15 @@ class MotivePower extends Component {
                  onChange={this.handleUnitIdChange.bind(this)}
           />
         </li>
-        <li> Road Name:       
-          <input id='roadName_id'       
-                 type='text'
-                 placeholder="Road name"
-                 value={this.props.motivePower.scac}
-                 onChange={this.handleRoadNameChange.bind(this)}
-        />
+        <li> Road Name:
+          <input
+                   id='roadName_id'       
+                   type='text'
+                   placeholder="Road name"
+                   value={this.props.motivePower.scac}
+                   onChange={this.handleRoadNameChange.bind(this)}
+          />
+
         </li>
         <li> Road Number:     
           <input id='roadNumber_id'     
